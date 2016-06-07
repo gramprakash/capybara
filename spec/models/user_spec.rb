@@ -10,19 +10,10 @@
 #  updated_at      :datetime         not null
 #
 
+require 'rails_helper'
 
-FactoryGirl.define do
-  factory :user do
-    username {Faker::Internet.user_name}
-    password "ABCDEF"
-
-    factory :user_jerry do
-      username 'jerry'
-    end
-
-    factory :jerry do
-      username 'jerry'
-    end
-
-  end
+RSpec.describe User, type: :model do
+  # pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of(:username).on(:create) }
+  it { should validate_presence_of(:password_digest).on(:create) }
 end

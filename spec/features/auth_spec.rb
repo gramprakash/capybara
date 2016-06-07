@@ -21,11 +21,12 @@ feature "the signup process" do
 end
 
 feature "logging in" do
-  before(:each) { FactoryGirl.build(:jerry) }
+  before(:each) { FactoryGirl.create(:jerry) }
 
   it "shows username on the homepage after login" do
     sign_in_jerry
-
+    # debugger
+    # save_and_open_page
     expect(page).to have_content('jerry')
   end
 
@@ -33,7 +34,7 @@ end
 
 feature "logging out" do
   before(:each) do
-    FactoryGirl.build(:jerry)
+    FactoryGirl.create(:jerry)
     sign_in_jerry
   end
 

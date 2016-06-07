@@ -40,3 +40,16 @@ def sign_in_jerry
   fill_in('Password', with: 'ABCDEF')
   click_button('Sign In')
 end
+
+def click_create_goal
+  sign_in_jerry
+  click_link('New Goal')
+end
+
+def goal_create_success
+  fill_in 'title', with: 'Eat Donuts.'
+  fill_in 'description', with: 'EAT!'
+  check('public')
+  check('completed')
+  click_button('New Goal')
+end
